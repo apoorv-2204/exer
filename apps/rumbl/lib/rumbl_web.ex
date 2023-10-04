@@ -62,9 +62,9 @@ defmodule RumblWeb do
   def view do
     quote do
       use Phoenix.View,
-      root: "lib/rumbl_web/templates",
-      namespace: RumblWeb,
-      pattern: "**/*"
+        root: "lib/rumbl_web/templates",
+        namespace: RumblWeb,
+        pattern: "**/*"
 
       use Phoenix.HTML
 
