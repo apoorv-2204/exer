@@ -43,4 +43,43 @@ defmodule Algorithms.Tree do
     [current_diameter, diameter_of_binary_tree(ln), diameter_of_binary_tree(rn)]
     |> Enum.max()
   end
+
+  @spec is_balanced(root :: TreeNode.t() | nil) :: boolean
+  def is_balanced(nil), do: true
+
+  def is_balanced(%{left: left_node, right: right_node}) do
+    Kernel.abs(max_depth(left_node) - max_depth(right_node)) <= 1 && is_balanced(left_node) &&
+      is_balanced(right_node)
+  end
+
+  @spec has_path_sum(root :: TreeNode.t() | nil, target_sum :: integer) :: boolean
+  def has_path_sum(nil, _), do: false
+
+  def has_path_sum(%{right: rn, left: ln, val: val}, target_sum) do
+    newTargetSum = target_sum - val
+
+    case {newTargetSum == 0, rn == nil && ln == nil} do
+      {true, true} -> true
+      _ -> has_path_sum(ln, newTargetSum) or has_path_sum(rn, newTargetSum)
+    end
+  end
+
+  @spec path_sum(root :: TreeNode.t() | nil, target_sum :: integer) :: [[integer]]
+  def path_sum(root, target_sum) do
+    ps(root, target_sum, [], [])
+    |> Enum.map(&Enum.reverse/1)
+  end
+
+  def ps(nil, _, _, acc), do: acc
+
+  def ps(%{left: nil, right: nil, val: lv}, val, path, acc) when lv == val,
+    do: [[lv | path] | acc]
+
+  def ps(%{left: nil, right: nil, val: val}, val, path, acc), do: acc
+
+  def ps(%{left: ln, right: rn, val: val}, target_sum, path, acc) do
+    newTargetSum = target_sum - val
+    acc = ps(ln, newTargetSum, [val | path], acc)
+    ps(rn, newTargetSum, [val | path], acc)
+  end
 end
