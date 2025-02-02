@@ -5,7 +5,7 @@ defmodule Upnp.MixProject do
     [
       app: :upnpe,
       version: "0.1.0",
-      elixir: "~> 1.14",
+      elixir: "~> 1.18.2",
       config_path: "config/config.exs",
       build_path: "_build",
       deps_path: "deps",
