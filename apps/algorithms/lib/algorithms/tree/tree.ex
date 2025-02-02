@@ -75,7 +75,7 @@ defmodule Algorithms.Tree do
   def ps(%{left: nil, right: nil, val: lv}, val, path, acc) when lv == val,
     do: [[lv | path] | acc]
 
-  def ps(%{left: nil, right: nil, val: val}, val, path, acc), do: acc
+  def ps(%{left: nil, right: nil, val: val}, val, _path, acc), do: acc
 
   def ps(%{left: ln, right: rn, val: val}, target_sum, path, acc) do
     newTargetSum = target_sum - val

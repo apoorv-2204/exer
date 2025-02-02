@@ -3,7 +3,7 @@ defmodule Issues.GithubIssues do
   ad
   """
   @user_agent [{"User-agent", "elixir work"}]
-  @base_url Application.get_env(:issues, :github_url)
+  @base_url Application.compile_env(:issues, [:github_url])
 
   def fetch_issues() do
     fetch_issues("user", "project", "_count")

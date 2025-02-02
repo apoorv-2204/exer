@@ -34,8 +34,8 @@ defmodule Identicon do
     |> :binary.bin_to_list()
   end
 
-  @doc """
-
+  # @doc
+  """
 
     :crypto.hash(:md5 , input_string)#returns md5 string in binary
     |> :binary.bin_to_list #converts binary to list
@@ -45,8 +45,9 @@ defmodule Identicon do
       iex> Identicon.main("banana")
 
   """
-  def hash_string(input_string) do
-    :crypto.hash(:md5, input_string)
-    |> :binary.bin_to_list()
-  end
+
+  # def hash_string(input_string) do
+  #   :crypto.hash(:md5, input_string)
+  #   |> :binary.bin_to_list()
+  # end
 end

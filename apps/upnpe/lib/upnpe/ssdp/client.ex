@@ -6,6 +6,7 @@ defmodule SSDP.Client do
   defmodule SSDP.Client.State do
     defstruct port: nil, udp: nil, devices: []
   end
+
   alias SSDP.Client.State
   @port 1900
   @multicast_ip {239, 255, 255, 250}
