@@ -169,7 +169,7 @@ defmodule SSDP.Client do
       res =
         case HTTPoison.get(url, [], hackney: [:insecure]) do
           {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-            obj = Poison.Parser.parse!(body)
+            obj = Jason.parse!(body)
 
             obj = %{
               :version => %{

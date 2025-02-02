@@ -22,7 +22,7 @@ defmodule Issues.GithubIssues do
   end
 
   def handle_response({_, %{status_code: status_code, body: body}}) do
-    {status_code |> check_for_error(), body |> Poison.Parser.parse!()}
+    {status_code |> check_for_error(), body |> Jason.decode!()}
   end
 
   def check_for_error(200), do: :ok
