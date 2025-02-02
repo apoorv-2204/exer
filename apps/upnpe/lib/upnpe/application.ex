@@ -6,9 +6,10 @@ defmodule UPNPE.Application do
   alias UPNPE.SSDP.Supervisor, as: SSDPSupervisor
 
   def start(_type, _args) do
-    children = [{SSDPSupervisor, []}]
+    # children = [{SSDPSupervisor, []}]
+    children = []
 
-    Supervisor.start_link(Utils.configurable_children(children),
+    Supervisor.start_link(children,
       strategy: :one_for_one,
       name: UPNPE.Supervisor
     )

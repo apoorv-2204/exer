@@ -25,7 +25,7 @@ defmodule Rumbl.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Rumbl.Supervisor]
-    Supervisor.start_link(children, opts)
+    Supervisor.start_link([], opts)
   end
 
   # Tell Phoenix to update the endpoint configuration

@@ -17,6 +17,10 @@ defmodule Identicon do
     |> generate_color
   end
 
+  def generate_color(_r) do
+    "red"
+  end
+
   @doc """
   Main
   string input from Identicon
@@ -34,7 +38,7 @@ defmodule Identicon do
 
 
     :crypto.hash(:md5 , input_string)#returns md5 string in binary
-    |> :binary.bin_to_list #converts binary to list 
+    |> :binary.bin_to_list #converts binary to list
 
   ## Exmapples
 

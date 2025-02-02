@@ -3,6 +3,10 @@ defmodule SSDP.Client do
   require Logger
   # import SweetXml
 
+  defmodule SSDP.Client.State do
+    defstruct port: nil, udp: nil, devices: []
+  end
+  alias SSDP.Client.State
   @port 1900
   @multicast_ip {239, 255, 255, 250}
   @multicast_ip_string "239.255.255.250"
@@ -73,11 +77,11 @@ defmodule SSDP.Client do
   end
 
   def handle_info(:discover, state) do
-    Enum.each(discover_messages, fn m ->
+    Enum.each(discover_messages(), fn m ->
       Process.send_after(self(), {:ping, m}, (:rand.uniform() * 1000) |> round)
     end)
 
-    Process.send_after(self, :discover, 61000)
+    Process.send_after(self(), :discover, 61000)
     {:noreply, state}
   end
 
