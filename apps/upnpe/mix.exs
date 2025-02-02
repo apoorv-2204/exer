@@ -26,7 +26,8 @@ defmodule Upnp.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:sweet_xml, "~> 0.7.5"}
+      {:sweet_xml, "~> 0.7.5"},
+      {:httpoison, "~> 2.2"}
     ]
   end
 end
