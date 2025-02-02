@@ -13,9 +13,8 @@ defmodule Identicon do
   """
   def main(input) do
     input
-    |>hash_string
-    |>generate_color
-
+    |> hash_string
+    |> generate_color
   end
 
   @doc """
@@ -27,24 +26,23 @@ defmodule Identicon do
 
   """
   def hash_string(input_string) do
-    :crypto.hash(:md5 , input_string)
-    |> :binary.bin_to_list 
+    :crypto.hash(:md5, input_string)
+    |> :binary.bin_to_list()
   end
-  
+
   @doc """
-  
-  
+
+
     :crypto.hash(:md5 , input_string)#returns md5 string in binary
     |> :binary.bin_to_list #converts binary to list 
-  
+
   ## Exmapples
 
       iex> Identicon.main("banana")
 
   """
   def hash_string(input_string) do
-    :crypto.hash(:md5 , input_string)
-    |> :binary.bin_to_list 
-
+    :crypto.hash(:md5, input_string)
+    |> :binary.bin_to_list()
   end
 end
