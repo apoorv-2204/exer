@@ -3,7 +3,7 @@ defmodule UPNPE.Application do
 
   use Application
 
-  alias UPNPE.SSDP.Supervisor, as: SSDPSupervisor
+  # alias UPNPE.SSDP.Supervisor, as: SSDPSupervisor
 
   def start(_type, _args) do
     # children = [{SSDPSupervisor, []}]
