@@ -57,9 +57,6 @@ defmodule MetaProg.C2.ControlFlow2 do
   defmacro my_if(expr, do: if_block), do: if(expr, do: if_block, else: nil)
 
   defmacro my_if(expr, do: if_block, else: else_block) do
-    IO.inspect(if_block)
-    IO.inspect(else_block)
-
     quote do
       case unquote(expr) do
         x when x in [false, nil] ->
