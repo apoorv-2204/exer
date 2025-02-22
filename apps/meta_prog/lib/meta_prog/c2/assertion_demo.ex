@@ -26,4 +26,8 @@ defmodule MetaProg.C2.AssertionDemo do
     assert 5 * 5 == 25
     assert 10 / 2 == 5
   end
+
+  test "refute of about " do
+    refute 6 * 6 == 36
+  end
 end

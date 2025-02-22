@@ -49,7 +49,7 @@ defmodule MetaProg.C2.Assertion do
   defmacro refute({operator, context, [lhs, rhs]}) do
     quote bind_quoted: [op: operator, ctx: context, lhs: lhs, rhs: rhs] do
       MetaProg.C2.Assertion.Test.assert(op, lhs, rhs)
-      |> Kernel.!()
+      |> Kernel.==(false)
       |> MetaProg.C2.Assertion.Test.wrap_result(op, lhs, rhs)
     end
   end
@@ -70,14 +70,10 @@ defmodule MetaProg.C2.Assertion do
   and will raise a compile error.
   """
   defmacro assert({operator, context, [lhs, rhs]}) do
-    res =
-      quote bind_quoted: [op: operator, ctx: context, lhs: lhs, rhs: rhs] do
-        MetaProg.C2.Assertion.Test.assert(op, lhs, rhs)
-        |> MetaProg.C2.Assertion.Test.wrap_result(op, lhs, rhs)
-      end
-
-    IO.inspect(res)
-    res
+    quote bind_quoted: [op: operator, ctx: context, lhs: lhs, rhs: rhs] do
+      MetaProg.C2.Assertion.Test.assert(op, lhs, rhs)
+      |> MetaProg.C2.Assertion.Test.wrap_result(op, lhs, rhs)
+    end
   end
 
   # ------------------------------------------------------------------
@@ -99,13 +95,14 @@ defmodule MetaProg.C2.Assertion do
   if the caller is `MyTests`, it will display `MyTests`.
   """
   defmacro __using__(_env) do
+    # its a varaible rep ast
     quote do
       # Import macros from MetaProg.C2.Assertion
       import unquote(__MODULE__)
 
       # Demonstration: shows which module is invoking `use` (the "caller" module).
-      IO.inspect(__MODULE__, label: "Caller module during `__using__` macro")
-      IO.inspect(unquote(__MODULE__), label: "unquote(__MODULE__) `__using__` macro")
+      # IO.inspect(__MODULE__, label: "Caller module during `__using__` macro")
+      # IO.inspect(unquote(__MODULE__), label: "unquote(__MODULE__) `__using__` macro")
 
       # Register an attribute `:tests` in the caller, accumulative for all test definitions.
       Module.register_attribute(__MODULE__, :tests, accumulate: true)
@@ -129,7 +126,7 @@ defmodule MetaProg.C2.Assertion do
   (because we’re injecting code back into the caller).
   """
   defmacro __before_compile__(_env) do
-    IO.inspect("__before_compile__")
+    # IO.inspect("__before_compile__")
 
     quote do
       def run, do: MetaProg.C2.Assertion.Test.run(@tests, __MODULE__)
@@ -160,7 +157,7 @@ defmodule MetaProg.C2.Assertion do
     func_name = String.to_atom(desc)
 
     quote do
-      @tests {unquote(func_name), unquote(do_code)}
+      @tests {unquote(func_name), unquote(desc)}
       def unquote(func_name)(), do: unquote(do_code)
     end
   end
@@ -184,9 +181,7 @@ defmodule MetaProg.C2.Assertion.Test do
   defp fail(op, lhs, rhs) do
     {:fail,
      """
-     FAILURE:
-     Expected: #{lhs}
-     to be #{op} to: #{rhs}
+     FAILURE: Expected: #{lhs} to be #{op} to: #{rhs}
      """}
   end
 
@@ -212,8 +207,6 @@ defmodule MetaProg.C2.Assertion.Test do
       MetaProg.C2.Assertion.Test.run(@tests, __MODULE__)
   """
   def run(tests, module) do
-    IO.inspect(tests)
-
     Enum.each(tests, fn {test_func, description} ->
       case apply(module, test_func, []) do
         {:ok, nil} ->
@@ -222,9 +215,8 @@ defmodule MetaProg.C2.Assertion.Test do
         {:fail, reason} ->
           IO.puts("""
           ===============================================
-          FAILURE: #{inspect(description)}
+          FAILURE: #{inspect(description)} #{inspect(reason)}
           ===============================================
-          #{inspect(reason)}
           """)
       end
     end)
