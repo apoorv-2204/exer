@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "mix_task",
+            "name": "mix run (MetaProg.C3)",
+            "request": "launch",
+            "task": "run",
+            "taskArgs": [],
+            "projectDir": "${workspaceRoot}",
+            "requireFiles": [
+                "apps/meta_prog/lib/meta_prog/c3.ex"
+            ],
+            "exitAfterTaskReturns": false
+        }
+    ]
+}

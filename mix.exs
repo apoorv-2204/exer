@@ -16,6 +16,6 @@ defmodule Exer.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    []
+    [{:floki, "~> 0.37.0"}]
   end
 end

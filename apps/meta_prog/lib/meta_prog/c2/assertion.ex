@@ -230,294 +230,294 @@ defmodule MetaProg.C2.Assertion.Test do
     end)
   end
 
-  def test() do
-    [
-      abstract_code:
-        {:raw_abstract_v1,
-         [
-           {:attribute, 1, :file, {~c"lib/meta_prog/c2/assertion_demo.ex", 1}},
-           {:attribute, 1, :module, MetaProg.C2.AssertionDemo},
-           {:attribute, 1, :compile, [:no_auto_import]},
-           {:attribute, 1, :export,
-            [
-              "Math test 1": 0,
-              __info__: 1,
-              "integers can be added and subtracted": 0,
-              "integers can be multiplied and divided": 0,
-              run: 0
-            ]},
-           {:attribute, 1, :spec,
-            {{:__info__, 1},
-             [
-               {:type, 1, :fun,
-                [
-                  {:type, 1, :product,
-                   [
-                     {:type, 1, :union,
-                      [
-                        {:atom, 1, :attributes},
-                        {:atom, 1, :compile},
-                        {:atom, 1, :functions},
-                        {:atom, 1, :macros},
-                        {:atom, 1, :md5},
-                        {:atom, 1, :exports_md5},
-                        {:atom, 1, :module},
-                        {:atom, 1, :deprecated},
-                        {:atom, 1, :struct}
-                      ]}
-                   ]},
-                  {:type, 1, :any, []}
-                ]}
-             ]}},
-           {:function, 0, :__info__, 1,
-            [
-              {:clause, 0, [{:atom, 0, :module}], [], [{:atom, 0, MetaProg.C2.AssertionDemo}]},
-              {:clause, 0, [{:atom, 0, :functions}], [],
-               [
-                 {:cons, 0, {:tuple, 0, [{:atom, 0, :"Math test 1"}, {:integer, 0, 0}]},
-                  {:cons, 0,
-                   {:tuple, 0,
-                    [
-                      {:atom, 0, :"integers can be added and subtracted"},
-                      {:integer, 0, 0}
-                    ]},
-                   {:cons, 0,
-                    {:tuple, 0,
-                     [
-                       {:atom, 0, :"integers can be multiplied and divided"},
-                       {:integer, 0, 0}
-                     ]},
-                    {:cons, 0, {:tuple, 0, [{:atom, 0, :run}, {:integer, 0, 0}]}, {nil, 0}}}}}
-               ]},
-              {:clause, 0, [{:atom, 0, :macros}], [], [nil: 0]},
-              {:clause, 0, [{:atom, 0, :struct}], [], [{:atom, 0, nil}]},
-              {:clause, 0, [{:atom, 0, :exports_md5}], [],
-               [
-                 {:bin, 0,
-                  [
-                    {:bin_element, 0,
-                     {:string, 0,
-                      [138, 131, 105, 174, 172, 33, 82, 171, 143, 201, 37, 47, 37, 226, 88, ...]},
-                     :default, :default}
-                  ]}
-               ]},
-              {:clause, 0, [{:match, 0, {:var, 0, :Key}, {:atom, 0, :attributes}}], [],
-               [
-                 {:call, 0, {:remote, 0, {:atom, 0, :erlang}, {:atom, 0, :get_module_info}},
-                  [{:atom, 0, MetaProg.C2.AssertionDemo}, {:var, 0, :Key}]}
-               ]},
-              {:clause, 0, [{:match, 0, {:var, 0, :Key}, {:atom, 0, :compile}}], [],
-               [
-                 {:call, 0, {:remote, 0, {:atom, 0, :erlang}, {:atom, 0, :get_module_info}},
-                  [{:atom, 0, MetaProg.C2.AssertionDemo}, {:var, 0, :Key}]}
-               ]},
-              {:clause, 0, [{:match, 0, {:var, 0, :Key}, {:atom, 0, :md5}}], [],
-               [
-                 {:call, 0, {:remote, 0, {:atom, 0, :erlang}, {:atom, 0, :get_module_info}},
-                  [{:atom, 0, MetaProg.C2.AssertionDemo}, {:var, 0, :Key}]}
-               ]},
-              {:clause, 0, [{:atom, 0, :deprecated}], [], [nil: 0]}
-            ]},
-           {:function, 12, :"Math test 1", 0,
-            [
-              {:clause, 12, [], [],
-               [
-                 {:match, 13, {:var, {74, 7}, :_@1}, {:atom, 13, :==}},
-                 {:match, 13, {:var, {74, 7}, :_@2},
-                  {:cons, 13, {:tuple, 13, [{:atom, 13, :line}, {:integer, 13, 13}]},
-                   {:cons, 13, {:tuple, 13, [{:atom, 13, :column}, {:integer, 13, 14}]},
-                    {nil, 13}}}},
-                 {:match, 13, {:var, {74, 7}, :_@3}, {:integer, 13, 1}},
-                 {:match, 13, {:var, {74, 7}, :_@4}, {:integer, 13, 5}},
-                 {:call, 13,
-                  {:remote, 13, {:atom, 13, MetaProg.C2.Assertion.Test},
-                   {:atom, 13, :wrap_result}},
-                  [
-                    {:call, 13,
-                     {:remote, 13, {:atom, 13, MetaProg.C2.Assertion.Test}, {:atom, 13, :assert}},
-                     [{:var, 13, :_@1}, {:var, 13, :_@3}, {:var, 13, :_@4}]},
-                    {:var, 13, :_@1},
-                    {:var, 13, :_@3},
-                    {:var, 13, :_@4}
-                  ]},
-                 {:match, 14, {:var, {74, 7}, :_@5}, {:atom, 14, :===}},
-                 {:match, 14, {:var, {74, 7}, :_@6},
-                  {:cons, 14, {:tuple, 14, [{:atom, 14, :line}, {:integer, 14, 14}]},
-                   {:cons, 14, {:tuple, 14, [{:atom, 14, :column}, {:integer, 14, 14}]},
-                    {nil, 14}}}},
-                 {:match, 14, {:var, {74, 7}, :_@7}, {:integer, 14, 5}},
-                 {:match, 14, {:var, {74, 7}, :_@8},
-                  {:bin, 14, [{:bin_element, 14, {:string, 14, ~c"5"}, :default, :default}]}},
-                 {:call, 14,
-                  {:remote, 14, {:atom, 14, MetaProg.C2.Assertion.Test},
-                   {:atom, 14, :wrap_result}},
-                  [
-                    {:call, 14,
-                     {:remote, 14, {:atom, 14, MetaProg.C2.Assertion.Test}, {:atom, 14, :assert}},
-                     [{:var, 14, :_@5}, {:var, 14, :_@7}, {:var, 14, :_@8}]},
-                    {:var, 14, :_@5},
-                    {:var, 14, :_@7},
-                    {:var, 14, :_@8}
-                  ]},
-                 {:match, 15, {:var, {74, 7}, :_@9}, {:atom, 15, :==}},
-                 {:match, 15, {:var, {74, 7}, :_@10},
-                  {:cons, 15, {:tuple, 15, [{:atom, 15, :line}, {:integer, 15, 15}]},
-                   {:cons, 15, {:tuple, 15, [{:atom, 15, ...}, {:integer, ...}]}, {nil, 15}}}},
-                 {:match, 15, {:var, {74, 7}, :_@11}, {:integer, 15, 5}},
-                 {:match, 15, {:var, {74, 7}, :_@12}, {:integer, 15, 5}},
-                 {:call, 15,
-                  {:remote, 15, {:atom, 15, MetaProg.C2.Assertion.Test},
-                   {:atom, 15, :wrap_result}},
-                  [
-                    {:call, 15,
-                     {:remote, 15, {:atom, 15, MetaProg.C2.Assertion.Test}, {:atom, 15, ...}},
-                     [{:var, 15, :_@9}, {:var, 15, :_@11}, {:var, 15, ...}]},
-                    {:var, 15, :_@9},
-                    {:var, 15, :_@11},
-                    {:var, 15, :_@12}
-                  ]},
-                 {:match, 16, {:var, {74, 7}, :_@13}, {:atom, 16, :>}},
-                 {:match, 16, {:var, {74, 7}, :_@14},
-                  {:cons, 16, {:tuple, 16, [{:atom, ...}, {...}]},
-                   {:cons, 16, {:tuple, ...}, {...}}}},
-                 {:match, 16, {:var, {74, 7}, :_@15}, {:integer, 16, 2}},
-                 {:match, 16, {:var, {74, 7}, :_@16}, {:integer, 16, 0}},
-                 {:call, 16,
-                  {:remote, 16, {:atom, 16, MetaProg.C2.Assertion.Test}, {:atom, 16, ...}},
-                  [
-                    {:call, 16, {:remote, ...}, [...]},
-                    {:var, 16, :_@13},
-                    {:var, 16, ...},
-                    {:var, ...}
-                  ]},
-                 {:block, 17,
-                  [
-                    {:match, 17, {:var, ...}, {...}},
-                    {:match, 17, {...}, ...},
-                    {:match, 17, ...},
-                    {:match, ...},
-                    {...}
-                  ]}
-               ]}
-            ]},
-           {:function, 20, :"integers can be added and subtracted", 0,
-            [
-              {:clause, 20, [], [],
-               [
-                 {:match, 21, {:var, {74, 7}, :_@1}, {:atom, 21, :==}},
-                 {:match, 21, {:var, {74, 7}, :_@2},
-                  {:cons, 21, {:tuple, 21, [{:atom, 21, :line}, {:integer, 21, 21}]},
-                   {:cons, 21, {:tuple, 21, [{:atom, 21, :column}, {:integer, 21, 18}]},
-                    {nil, 21}}}},
-                 {:match, 21, {:var, {74, 7}, :_@3},
-                  {:op, {21, 14}, :+, {:integer, {21, 14}, 2}, {:integer, {21, 14}, 3}}},
-                 {:match, 21, {:var, {74, 7}, :_@4}, {:integer, 21, 5}},
-                 {:call, 21,
-                  {:remote, 21, {:atom, 21, MetaProg.C2.Assertion.Test},
-                   {:atom, 21, :wrap_result}},
-                  [
-                    {:call, 21,
-                     {:remote, 21, {:atom, 21, MetaProg.C2.Assertion.Test}, {:atom, 21, :assert}},
-                     [{:var, 21, :_@1}, {:var, 21, :_@3}, {:var, 21, :_@4}]},
-                    {:var, 21, :_@1},
-                    {:var, 21, :_@3},
-                    {:var, 21, :_@4}
-                  ]},
-                 {:block, 22,
-                  [
-                    {:match, 22, {:var, {74, 7}, :_@5}, {:atom, 22, :==}},
-                    {:match, 22, {:var, {74, 7}, :_@6},
-                     {:cons, 22, {:tuple, 22, [{:atom, 22, :line}, {:integer, 22, 22}]},
-                      {:cons, 22, {:tuple, 22, [{:atom, 22, ...}, {:integer, ...}]}, {nil, 22}}}},
-                    {:match, 22, {:var, {74, 7}, :_@7},
-                     {:op, {22, 14}, :-, {:integer, {22, 14}, 5}, {:integer, {22, 14}, 5}}},
-                    {:match, 22, {:var, {74, 7}, :_@8}, {:integer, 22, 10}},
-                    {:call, 22,
-                     {:remote, 22, {:atom, 22, MetaProg.C2.Assertion.Test},
-                      {:atom, 22, :wrap_result}},
-                     [
-                       {:call, 22,
-                        {:remote, 22, {:atom, 22, MetaProg.C2.Assertion.Test}, {:atom, 22, ...}},
-                        [{:var, 22, :_@5}, {:var, 22, :_@7}, {:var, 22, ...}]},
-                       {:var, 22, :_@5},
-                       {:var, 22, :_@7},
-                       {:var, 22, :_@8}
-                     ]}
-                  ]}
-               ]}
-            ]},
-           {:function, 25, :"integers can be multiplied and divided", 0,
-            [
-              {:clause, 25, [], [],
-               [
-                 {:match, 26, {:var, {74, 7}, :_@1}, {:atom, 26, :==}},
-                 {:match, 26, {:var, {74, 7}, :_@2},
-                  {:cons, 26, {:tuple, 26, [{:atom, 26, :line}, {:integer, 26, 26}]},
-                   {:cons, 26, {:tuple, 26, [{:atom, 26, :column}, {:integer, 26, 18}]},
-                    {nil, 26}}}},
-                 {:match, 26, {:var, {74, 7}, :_@3},
-                  {:op, {26, 14}, :*, {:integer, {26, 14}, 5}, {:integer, {26, 14}, 5}}},
-                 {:match, 26, {:var, {74, 7}, :_@4}, {:integer, 26, 25}},
-                 {:call, 26,
-                  {:remote, 26, {:atom, 26, MetaProg.C2.Assertion.Test},
-                   {:atom, 26, :wrap_result}},
-                  [
-                    {:call, 26,
-                     {:remote, 26, {:atom, 26, MetaProg.C2.Assertion.Test}, {:atom, 26, :assert}},
-                     [{:var, 26, :_@1}, {:var, 26, :_@3}, {:var, 26, :_@4}]},
-                    {:var, 26, :_@1},
-                    {:var, 26, :_@3},
-                    {:var, 26, :_@4}
-                  ]},
-                 {:block, 27,
-                  [
-                    {:match, 27, {:var, {74, 7}, :_@5}, {:atom, 27, :==}},
-                    {:match, 27, {:var, {74, 7}, :_@6},
-                     {:cons, 27, {:tuple, 27, [{:atom, 27, :line}, {:integer, 27, 27}]},
-                      {:cons, 27, {:tuple, 27, [{:atom, ...}, {...}]}, {nil, 27}}}},
-                    {:match, 27, {:var, {74, 7}, :_@7},
-                     {:op, {27, 15}, :/, {:integer, {27, 15}, 10}, {:integer, {27, 15}, 2}}},
-                    {:match, 27, {:var, {74, 7}, :_@8}, {:integer, 27, 5}},
-                    {:call, 27,
-                     {:remote, 27, {:atom, 27, MetaProg.C2.Assertion.Test},
-                      {:atom, 27, :wrap_result}},
-                     [
-                       {:call, 27, {:remote, 27, {:atom, 27, ...}, {:atom, ...}},
-                        [{:var, 27, :_@5}, {:var, 27, ...}, {:var, ...}]},
-                       {:var, 27, :_@5},
-                       {:var, 27, :_@7},
-                       {:var, 27, :_@8}
-                     ]}
-                  ]}
-               ]}
-            ]},
-           {:function, 1, :run, 0,
-            [
-              {:clause, [generated: true, location: 0], [], [],
-               [
-                 {:call, 1,
-                  {:remote, 1, {:atom, 1, MetaProg.C2.Assertion.Test}, {:atom, 1, :run}},
-                  [
-                    {:cons, 1,
-                     {:tuple, 1,
-                      [
-                        {:atom, 1, :"integers can be multiplied and divided"},
-                        {:tuple, 1, [{:atom, 1, :ok}, {:atom, 1, nil}]}
-                      ]},
-                     {:cons, 1,
-                      {:tuple, 1,
-                       [
-                         {:atom, 1, :"integers can be added and subtracted"},
-                         {:tuple, 1, [{:atom, 1, :fail}, {:bin, 1, [...]}]}
-                       ]},
-                      {:cons, 1,
-                       {:tuple, 1, [{:atom, 1, :"Math test 1"}, {:tuple, 1, [{...}, ...]}]},
-                       {nil, 1}}}},
-                    {:atom, 1, MetaProg.C2.AssertionDemo}
-                  ]}
-               ]}
-            ]}
-         ]}
-    ]
-  end
+  # def test() do
+  #   [
+  #     abstract_code:
+  #       {:raw_abstract_v1,
+  #        [
+  #          {:attribute, 1, :file, {~c"lib/meta_prog/c2/assertion_demo.ex", 1}},
+  #          {:attribute, 1, :module, MetaProg.C2.AssertionDemo},
+  #          {:attribute, 1, :compile, [:no_auto_import]},
+  #          {:attribute, 1, :export,
+  #           [
+  #             "Math test 1": 0,
+  #             __info__: 1,
+  #             "integers can be added and subtracted": 0,
+  #             "integers can be multiplied and divided": 0,
+  #             run: 0
+  #           ]},
+  #          {:attribute, 1, :spec,
+  #           {{:__info__, 1},
+  #            [
+  #              {:type, 1, :fun,
+  #               [
+  #                 {:type, 1, :product,
+  #                  [
+  #                    {:type, 1, :union,
+  #                     [
+  #                       {:atom, 1, :attributes},
+  #                       {:atom, 1, :compile},
+  #                       {:atom, 1, :functions},
+  #                       {:atom, 1, :macros},
+  #                       {:atom, 1, :md5},
+  #                       {:atom, 1, :exports_md5},
+  #                       {:atom, 1, :module},
+  #                       {:atom, 1, :deprecated},
+  #                       {:atom, 1, :struct}
+  #                     ]}
+  #                  ]},
+  #                 {:type, 1, :any, []}
+  #               ]}
+  #            ]}},
+  #          {:function, 0, :__info__, 1,
+  #           [
+  #             {:clause, 0, [{:atom, 0, :module}], [], [{:atom, 0, MetaProg.C2.AssertionDemo}]},
+  #             {:clause, 0, [{:atom, 0, :functions}], [],
+  #              [
+  #                {:cons, 0, {:tuple, 0, [{:atom, 0, :"Math test 1"}, {:integer, 0, 0}]},
+  #                 {:cons, 0,
+  #                  {:tuple, 0,
+  #                   [
+  #                     {:atom, 0, :"integers can be added and subtracted"},
+  #                     {:integer, 0, 0}
+  #                   ]},
+  #                  {:cons, 0,
+  #                   {:tuple, 0,
+  #                    [
+  #                      {:atom, 0, :"integers can be multiplied and divided"},
+  #                      {:integer, 0, 0}
+  #                    ]},
+  #                   {:cons, 0, {:tuple, 0, [{:atom, 0, :run}, {:integer, 0, 0}]}, {nil, 0}}}}}
+  #              ]},
+  #             {:clause, 0, [{:atom, 0, :macros}], [], [nil: 0]},
+  #             {:clause, 0, [{:atom, 0, :struct}], [], [{:atom, 0, nil}]},
+  #             {:clause, 0, [{:atom, 0, :exports_md5}], [],
+  #              [
+  #                {:bin, 0,
+  #                 [
+  #                   {:bin_element, 0,
+  #                    {:string, 0,
+  #                     [138, 131, 105, 174, 172, 33, 82, 171, 143, 201, 37, 47, 37, 226, 88, ...]},
+  #                    :default, :default}
+  #                 ]}
+  #              ]},
+  #             {:clause, 0, [{:match, 0, {:var, 0, :Key}, {:atom, 0, :attributes}}], [],
+  #              [
+  #                {:call, 0, {:remote, 0, {:atom, 0, :erlang}, {:atom, 0, :get_module_info}},
+  #                 [{:atom, 0, MetaProg.C2.AssertionDemo}, {:var, 0, :Key}]}
+  #              ]},
+  #             {:clause, 0, [{:match, 0, {:var, 0, :Key}, {:atom, 0, :compile}}], [],
+  #              [
+  #                {:call, 0, {:remote, 0, {:atom, 0, :erlang}, {:atom, 0, :get_module_info}},
+  #                 [{:atom, 0, MetaProg.C2.AssertionDemo}, {:var, 0, :Key}]}
+  #              ]},
+  #             {:clause, 0, [{:match, 0, {:var, 0, :Key}, {:atom, 0, :md5}}], [],
+  #              [
+  #                {:call, 0, {:remote, 0, {:atom, 0, :erlang}, {:atom, 0, :get_module_info}},
+  #                 [{:atom, 0, MetaProg.C2.AssertionDemo}, {:var, 0, :Key}]}
+  #              ]},
+  #             {:clause, 0, [{:atom, 0, :deprecated}], [], [nil: 0]}
+  #           ]},
+  #          {:function, 12, :"Math test 1", 0,
+  #           [
+  #             {:clause, 12, [], [],
+  #              [
+  #                {:match, 13, {:var, {74, 7}, :_@1}, {:atom, 13, :==}},
+  #                {:match, 13, {:var, {74, 7}, :_@2},
+  #                 {:cons, 13, {:tuple, 13, [{:atom, 13, :line}, {:integer, 13, 13}]},
+  #                  {:cons, 13, {:tuple, 13, [{:atom, 13, :column}, {:integer, 13, 14}]},
+  #                   {nil, 13}}}},
+  #                {:match, 13, {:var, {74, 7}, :_@3}, {:integer, 13, 1}},
+  #                {:match, 13, {:var, {74, 7}, :_@4}, {:integer, 13, 5}},
+  #                {:call, 13,
+  #                 {:remote, 13, {:atom, 13, MetaProg.C2.Assertion.Test},
+  #                  {:atom, 13, :wrap_result}},
+  #                 [
+  #                   {:call, 13,
+  #                    {:remote, 13, {:atom, 13, MetaProg.C2.Assertion.Test}, {:atom, 13, :assert}},
+  #                    [{:var, 13, :_@1}, {:var, 13, :_@3}, {:var, 13, :_@4}]},
+  #                   {:var, 13, :_@1},
+  #                   {:var, 13, :_@3},
+  #                   {:var, 13, :_@4}
+  #                 ]},
+  #                {:match, 14, {:var, {74, 7}, :_@5}, {:atom, 14, :===}},
+  #                {:match, 14, {:var, {74, 7}, :_@6},
+  #                 {:cons, 14, {:tuple, 14, [{:atom, 14, :line}, {:integer, 14, 14}]},
+  #                  {:cons, 14, {:tuple, 14, [{:atom, 14, :column}, {:integer, 14, 14}]},
+  #                   {nil, 14}}}},
+  #                {:match, 14, {:var, {74, 7}, :_@7}, {:integer, 14, 5}},
+  #                {:match, 14, {:var, {74, 7}, :_@8},
+  #                 {:bin, 14, [{:bin_element, 14, {:string, 14, ~c"5"}, :default, :default}]}},
+  #                {:call, 14,
+  #                 {:remote, 14, {:atom, 14, MetaProg.C2.Assertion.Test},
+  #                  {:atom, 14, :wrap_result}},
+  #                 [
+  #                   {:call, 14,
+  #                    {:remote, 14, {:atom, 14, MetaProg.C2.Assertion.Test}, {:atom, 14, :assert}},
+  #                    [{:var, 14, :_@5}, {:var, 14, :_@7}, {:var, 14, :_@8}]},
+  #                   {:var, 14, :_@5},
+  #                   {:var, 14, :_@7},
+  #                   {:var, 14, :_@8}
+  #                 ]},
+  #                {:match, 15, {:var, {74, 7}, :_@9}, {:atom, 15, :==}},
+  #                {:match, 15, {:var, {74, 7}, :_@10},
+  #                 {:cons, 15, {:tuple, 15, [{:atom, 15, :line}, {:integer, 15, 15}]},
+  #                  {:cons, 15, {:tuple, 15, [{:atom, 15, ...}, {:integer, ...}]}, {nil, 15}}}},
+  #                {:match, 15, {:var, {74, 7}, :_@11}, {:integer, 15, 5}},
+  #                {:match, 15, {:var, {74, 7}, :_@12}, {:integer, 15, 5}},
+  #                {:call, 15,
+  #                 {:remote, 15, {:atom, 15, MetaProg.C2.Assertion.Test},
+  #                  {:atom, 15, :wrap_result}},
+  #                 [
+  #                   {:call, 15,
+  #                    {:remote, 15, {:atom, 15, MetaProg.C2.Assertion.Test}, {:atom, 15, ...}},
+  #                    [{:var, 15, :_@9}, {:var, 15, :_@11}, {:var, 15, ...}]},
+  #                   {:var, 15, :_@9},
+  #                   {:var, 15, :_@11},
+  #                   {:var, 15, :_@12}
+  #                 ]},
+  #                {:match, 16, {:var, {74, 7}, :_@13}, {:atom, 16, :>}},
+  #                {:match, 16, {:var, {74, 7}, :_@14},
+  #                 {:cons, 16, {:tuple, 16, [{:atom, ...}, {...}]},
+  #                  {:cons, 16, {:tuple, ...}, {...}}}},
+  #                {:match, 16, {:var, {74, 7}, :_@15}, {:integer, 16, 2}},
+  #                {:match, 16, {:var, {74, 7}, :_@16}, {:integer, 16, 0}},
+  #                {:call, 16,
+  #                 {:remote, 16, {:atom, 16, MetaProg.C2.Assertion.Test}, {:atom, 16, ...}},
+  #                 [
+  #                   {:call, 16, {:remote, ...}, [...]},
+  #                   {:var, 16, :_@13},
+  #                   {:var, 16, ...},
+  #                   {:var, ...}
+  #                 ]},
+  #                {:block, 17,
+  #                 [
+  #                   {:match, 17, {:var, ...}, {...}},
+  #                   {:match, 17, {...}, ...},
+  #                   {:match, 17, ...},
+  #                   {:match, ...},
+  #                   {...}
+  #                 ]}
+  #              ]}
+  #           ]},
+  #          {:function, 20, :"integers can be added and subtracted", 0,
+  #           [
+  #             {:clause, 20, [], [],
+  #              [
+  #                {:match, 21, {:var, {74, 7}, :_@1}, {:atom, 21, :==}},
+  #                {:match, 21, {:var, {74, 7}, :_@2},
+  #                 {:cons, 21, {:tuple, 21, [{:atom, 21, :line}, {:integer, 21, 21}]},
+  #                  {:cons, 21, {:tuple, 21, [{:atom, 21, :column}, {:integer, 21, 18}]},
+  #                   {nil, 21}}}},
+  #                {:match, 21, {:var, {74, 7}, :_@3},
+  #                 {:op, {21, 14}, :+, {:integer, {21, 14}, 2}, {:integer, {21, 14}, 3}}},
+  #                {:match, 21, {:var, {74, 7}, :_@4}, {:integer, 21, 5}},
+  #                {:call, 21,
+  #                 {:remote, 21, {:atom, 21, MetaProg.C2.Assertion.Test},
+  #                  {:atom, 21, :wrap_result}},
+  #                 [
+  #                   {:call, 21,
+  #                    {:remote, 21, {:atom, 21, MetaProg.C2.Assertion.Test}, {:atom, 21, :assert}},
+  #                    [{:var, 21, :_@1}, {:var, 21, :_@3}, {:var, 21, :_@4}]},
+  #                   {:var, 21, :_@1},
+  #                   {:var, 21, :_@3},
+  #                   {:var, 21, :_@4}
+  #                 ]},
+  #                {:block, 22,
+  #                 [
+  #                   {:match, 22, {:var, {74, 7}, :_@5}, {:atom, 22, :==}},
+  #                   {:match, 22, {:var, {74, 7}, :_@6},
+  #                    {:cons, 22, {:tuple, 22, [{:atom, 22, :line}, {:integer, 22, 22}]},
+  #                     {:cons, 22, {:tuple, 22, [{:atom, 22, ...}, {:integer, ...}]}, {nil, 22}}}},
+  #                   {:match, 22, {:var, {74, 7}, :_@7},
+  #                    {:op, {22, 14}, :-, {:integer, {22, 14}, 5}, {:integer, {22, 14}, 5}}},
+  #                   {:match, 22, {:var, {74, 7}, :_@8}, {:integer, 22, 10}},
+  #                   {:call, 22,
+  #                    {:remote, 22, {:atom, 22, MetaProg.C2.Assertion.Test},
+  #                     {:atom, 22, :wrap_result}},
+  #                    [
+  #                      {:call, 22,
+  #                       {:remote, 22, {:atom, 22, MetaProg.C2.Assertion.Test}, {:atom, 22, ...}},
+  #                       [{:var, 22, :_@5}, {:var, 22, :_@7}, {:var, 22, ...}]},
+  #                      {:var, 22, :_@5},
+  #                      {:var, 22, :_@7},
+  #                      {:var, 22, :_@8}
+  #                    ]}
+  #                 ]}
+  #              ]}
+  #           ]},
+  #          {:function, 25, :"integers can be multiplied and divided", 0,
+  #           [
+  #             {:clause, 25, [], [],
+  #              [
+  #                {:match, 26, {:var, {74, 7}, :_@1}, {:atom, 26, :==}},
+  #                {:match, 26, {:var, {74, 7}, :_@2},
+  #                 {:cons, 26, {:tuple, 26, [{:atom, 26, :line}, {:integer, 26, 26}]},
+  #                  {:cons, 26, {:tuple, 26, [{:atom, 26, :column}, {:integer, 26, 18}]},
+  #                   {nil, 26}}}},
+  #                {:match, 26, {:var, {74, 7}, :_@3},
+  #                 {:op, {26, 14}, :*, {:integer, {26, 14}, 5}, {:integer, {26, 14}, 5}}},
+  #                {:match, 26, {:var, {74, 7}, :_@4}, {:integer, 26, 25}},
+  #                {:call, 26,
+  #                 {:remote, 26, {:atom, 26, MetaProg.C2.Assertion.Test},
+  #                  {:atom, 26, :wrap_result}},
+  #                 [
+  #                   {:call, 26,
+  #                    {:remote, 26, {:atom, 26, MetaProg.C2.Assertion.Test}, {:atom, 26, :assert}},
+  #                    [{:var, 26, :_@1}, {:var, 26, :_@3}, {:var, 26, :_@4}]},
+  #                   {:var, 26, :_@1},
+  #                   {:var, 26, :_@3},
+  #                   {:var, 26, :_@4}
+  #                 ]},
+  #                {:block, 27,
+  #                 [
+  #                   {:match, 27, {:var, {74, 7}, :_@5}, {:atom, 27, :==}},
+  #                   {:match, 27, {:var, {74, 7}, :_@6},
+  #                    {:cons, 27, {:tuple, 27, [{:atom, 27, :line}, {:integer, 27, 27}]},
+  #                     {:cons, 27, {:tuple, 27, [{:atom, ...}, {...}]}, {nil, 27}}}},
+  #                   {:match, 27, {:var, {74, 7}, :_@7},
+  #                    {:op, {27, 15}, :/, {:integer, {27, 15}, 10}, {:integer, {27, 15}, 2}}},
+  #                   {:match, 27, {:var, {74, 7}, :_@8}, {:integer, 27, 5}},
+  #                   {:call, 27,
+  #                    {:remote, 27, {:atom, 27, MetaProg.C2.Assertion.Test},
+  #                     {:atom, 27, :wrap_result}},
+  #                    [
+  #                      {:call, 27, {:remote, 27, {:atom, 27, ...}, {:atom, ...}},
+  #                       [{:var, 27, :_@5}, {:var, 27, ...}, {:var, ...}]},
+  #                      {:var, 27, :_@5},
+  #                      {:var, 27, :_@7},
+  #                      {:var, 27, :_@8}
+  #                    ]}
+  #                 ]}
+  #              ]}
+  #           ]},
+  #          {:function, 1, :run, 0,
+  #           [
+  #             {:clause, [generated: true, location: 0], [], [],
+  #              [
+  #                {:call, 1,
+  #                 {:remote, 1, {:atom, 1, MetaProg.C2.Assertion.Test}, {:atom, 1, :run}},
+  #                 [
+  #                   {:cons, 1,
+  #                    {:tuple, 1,
+  #                     [
+  #                       {:atom, 1, :"integers can be multiplied and divided"},
+  #                       {:tuple, 1, [{:atom, 1, :ok}, {:atom, 1, nil}]}
+  #                     ]},
+  #                    {:cons, 1,
+  #                     {:tuple, 1,
+  #                      [
+  #                        {:atom, 1, :"integers can be added and subtracted"},
+  #                        {:tuple, 1, [{:atom, 1, :fail}, {:bin, 1, [...]}]}
+  #                      ]},
+  #                     {:cons, 1,
+  #                      {:tuple, 1, [{:atom, 1, :"Math test 1"}, {:tuple, 1, [{...}, ...]}]},
+  #                      {nil, 1}}}},
+  #                   {:atom, 1, MetaProg.C2.AssertionDemo}
+  #                 ]}
+  #              ]}
+  #           ]}
+  #        ]}
+  #   ]
+  # end
 end
