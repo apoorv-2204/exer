@@ -96,6 +96,7 @@ defmodule MetaProg.C2.Assertion do
   """
   defmacro __using__(_env) do
     # its a varaible rep ast
+
     quote do
       # Import macros from MetaProg.C2.Assertion
       import unquote(__MODULE__)
@@ -207,19 +208,36 @@ defmodule MetaProg.C2.Assertion.Test do
       MetaProg.C2.Assertion.Test.run(@tests, __MODULE__)
   """
   def run(tests, module) do
-    Enum.each(tests, fn {test_func, description} ->
-      case apply(module, test_func, []) do
-        {:ok, nil} ->
-          IO.write(".")
-
-        {:fail, reason} ->
-          IO.puts("""
-          ===============================================
-          FAILURE: #{inspect(description)} #{inspect(reason)}
-          ===============================================
-          """)
-      end
+    Enum.each(tests, fn {test_func, desc} ->
+      execute(module, test_func, desc)
     end)
+  end
+
+  # def run(tests, module) do
+  #   Enum.each(tests, fn {test_func, desc} ->
+  #     spawn(fn ->
+  #       try do
+  #         execute(module, test_func, desc)
+  #       rescue
+  #         e ->
+  #           IO.puts("Unexpected Error #{inspect(e)}")
+  #       end
+  #     end)
+  #   end)
+  # end
+
+  def execute(module, test_func, desc) do
+    case apply(module, test_func, []) do
+      {:ok, nil} ->
+        IO.write(".")
+
+      {:fail, reason} ->
+        IO.puts("""
+        ===============================================
+        FAILURE: #{inspect(desc)} #{inspect(reason)}
+        ===============================================
+        """)
+    end
   end
 
   # def test() do
